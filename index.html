@@ -24,12 +24,18 @@
 
   <main>
     <section id="search-section">
-      <h2>Find Your Next Literary Adventure</h2>
-      <form id="search-form">
-        <label for="search-input"></label><input type="text" id="search-input" placeholder="Search by title, author, or genre">
-        <button type="submit">Search</button>
-      </form>
+      <div class="container">
+        <h2>Find Your Next Literary Adventure</h2>
+        <form id="search-form" class="form-inline">
+          <div class="form-group">
+            <label for="search-input"></label>
+            <input type="text" id="search-input" class="form-control" placeholder="Search books">
+          </div>
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
     </section>
+
 
     <section id="results-section">
       <h2>Search Results</h2>
