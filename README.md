@@ -5,6 +5,7 @@ Books Finder is a web application that allows you to find information on books, 
 
 ## Powered by 
 - [Bootstrap](https://getbootstrap.com/)
+- [Bulma](https://bulma.io/)
 - [Google Fonts](https://fonts.google.com/)
 - [JQuery](https://jquery.com/)
 - [OpenLibrary](https://openlibrary.org/developers/api)
