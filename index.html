@@ -1,14 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
 
-    <script src="./assets/js/script.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flipping Great Books</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>Flipping Great Books</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Genres</a></li>
+        <li><a href="#">Authors</a></li>
+        <li><a href="#">Favorites</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="search-section">
+      <h2>Find Your Next Literary Adventure</h2>
+      <form id="search-form">
+        <input type="text" id="search-input" placeholder="Search by title, author, or genre">
+        <button type="submit">Search</button>
+      </form>
+    </section>
+
+    <section id="results-section">
+      <h2>Search Results</h2>
+      <div id="results"></div>
+    </section>
+
+    <section id="recommended-section">
+      <h2>Recommended Books</h2>
+      <div id="sliding-books"></div>
+    </section>
+
+    <section id="author-section">
+      <h2>Author Suggestions</h2>
+      <button id="author-button">Get Authors</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Book Finder. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
