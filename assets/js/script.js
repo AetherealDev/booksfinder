@@ -36,10 +36,10 @@ function searchBooks(query) {
     });
 }
 
-// Function to create a book card
 function createBookCard(book) {
   const bookCard = document.createElement('div');
-  bookCard.classList.add('book-card');
+  bookCard.classList.add('box');
+  bookCard.classList.add('has-background-dark');
 
   const title = document.createElement('h3');
   title.textContent = book.volumeInfo.title;
@@ -49,7 +49,6 @@ function createBookCard(book) {
   author.textContent = book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Author not available';
   bookCard.appendChild(author);
 
-  // Add book cover image
   if (book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail) {
     const image = document.createElement('img');
     image.src = book.volumeInfo.imageLinks.thumbnail;
@@ -57,9 +56,46 @@ function createBookCard(book) {
     bookCard.appendChild(image);
   }
 
-  // Add more details such as ratings, description, etc.
+  const favoritesButton = document.createElement('button');
+  favoritesButton.classList.add('button');
+  favoritesButton.classList.add('is-primary');
+  favoritesButton.textContent = 'Favorite';
+  favoritesButton.addEventListener('click', function() {
+    favoriteBook(book);
+  });
+  bookCard.appendChild(favoritesButton);
+
+  // Apply consistent styling to the book card
+  bookCard.style.display = 'flex';
+  bookCard.style.flexDirection = 'column';
+  bookCard.style.alignItems = 'center';
+  bookCard.style.textAlign = 'center';
+
+  title.style.marginTop = '10px';
+  author.style.marginTop = '5px';
+
+  favoritesButton.style.marginTop = 'auto';
 
   return bookCard;
+}
+
+
+
+function favoriteBook(book) {
+  // Retrieve the existing favorites from local storage
+  const favorites = localStorage.getItem('favorites') || '[]';
+
+  // Parse the favorites into an array
+  const favoritesArray = JSON.parse(favorites);
+
+  // Add the book to the favorites array
+  favoritesArray.push(book);
+
+  // Convert the favorites array back to a string
+  const updatedFavorites = JSON.stringify(favoritesArray);
+
+  // Store the updated favorites in local storage
+  localStorage.setItem('favorites', updatedFavorites);
 }
 
 // Function to get recommended sliding books
@@ -78,6 +114,9 @@ function getRecommendedBooks() {
     });
 }
 
+
+
+
 // Function to get a list of authors
 function getAuthorSuggestions() {
   fetch(`${API_BASE_URL}/volumes?q=*&orderBy=newest&maxResults=40&key=${API_KEY}`)
@@ -91,6 +130,8 @@ function getAuthorSuggestions() {
       console.log('Error:', error);
     });
 }
+
+
 
 // Event listener for author button click
 authorButton.addEventListener('click', getAuthorSuggestions);
