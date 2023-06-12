@@ -104,17 +104,33 @@ function getRecommendedBooks() {
     .then((response) => response.json())
     .then((data) => {
       // Process the API response and display the recommended books
-      data.items.forEach((book) => {
+      data.items.forEach (slideShow) 
         const bookCard = createBookCard(book);
-        slidingBooksContainer.appendChild(bookCard);
-      });
-    })
-    .catch((error) => {
-      console.log('Error:', error);
-    });
+        var rand;
+        $(document).ready(function() {
+          bookCard = Math.floor((Math.random() * $('.item').length));
+          rand = bookCard;
+          $('#myCarousel').carousel(bookCard);
+          $('#myCarousel').fadeIn(1000);
+          setInterval(function(){ 
+            while(rand == bookCard){
+              rand = Math.floor((Math.random() * $('.item').length));
+            }
+            bookCard = rand;
+            $('#myCarousel').carousel(rand);
+        },3000);
+        })});
+        
+        $(document).ready(function() {
+          
+          /* Pick a random number and apply it to the first slide in the slideshow item */
+          $('.item').eq(Math.floor((Math.random() * $('.item').length))).addClass("active");
+        
+          /* Pick random next slide */
+          $('#myCarousel').carousel(Math.floor((Math.random() * $('.item').length)));
+        
+        });
 }
-
-
 
 
 // Function to get a list of authors
@@ -138,4 +154,8 @@ authorButton.addEventListener('click', getAuthorSuggestions);
 
 // Load recommended sliding books on page load
 getRecommendedBooks();
+
+// $('.carousel').carousel({
+//   interval: 2000
+// })
 
