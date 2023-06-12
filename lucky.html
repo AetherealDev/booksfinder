@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucky Book</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#" onclick="window.location.reload();">
+          <h1 class="title is-size-4">Flipping Great Books</h1>
+        </a>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+          data-target="navbarMenu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="genres.html">Genres</a>
+          <a class="navbar-item" href="index.html">Home</a>
+          <a class="navbar-item" href="./favorites.html">Favorites</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <main>
+    <section id="lucky-book-section" class="section">
+      <div class="container">
+        <h2 class="title is-size-2">Lucky Book</h2>
+        <div id="lucky-book"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2023 Book Finder. All rights reserved.</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    // API Configuration
+    const API_BASE_URL = 'https://www.googleapis.com/books/v1';
+    const API_KEY = 'AIzaSyD1BULOrUdMikCMnnqhiseWb3rTSXvv3WU'; // Replace with your API key
+
+    // Get reference to HTML element
+    const luckyBookContainer = document.getElementById('lucky-book');
+
+    // Function to fetch a random book and display it
+    function fetchRandomBook() {
+      axios.get(`${API_BASE_URL}/volumes?q=*&maxResults=1&key=${API_KEY}`)
+        .then((response) => {
+          const book = response.data.items[0];
+          const bookCard = createBookCard(book);
+          luckyBookContainer.appendChild(bookCard);
+        })
+        .catch((error) => {
+          console.log('Error:', error);
+        });
+    }
+
+    // Function to create a book card
+    function createBookCard(book) {
+      const bookCard = document.createElement('div');
+      bookCard.classList.add('box');
+      bookCard.classList.add('has-background-dark');
+
+      const title = document.createElement('h3');
+      title.textContent = book.volumeInfo.title;
+      bookCard.appendChild(title);
+
+      const author = document.createElement('p');
+      author.textContent = book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Author not available';
+      bookCard.appendChild(author);
+
+      if (book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail) {
+        const image = document.createElement('img');
+        image.src = book.volumeInfo.imageLinks.thumbnail;
+        image.alt = book.volumeInfo.title;
+        bookCard.appendChild(image);
+      }
+
+      // Apply consistent styling to the book card
+      bookCard.style.display = 'flex';
+      bookCard.style.flexDirection = 'column';
+      bookCard.style.alignItems = 'center';
+      bookCard.style.textAlign = 'center';
+
+      title.style.marginTop = '10px';
+      author.style.marginTop = '5px';
+
+      return bookCard;
+    }
+
+    // Fetch and display a random book on page load
+    fetchRandomBook();
+  </script>
+</body>
+
+</html>
