@@ -132,7 +132,6 @@ function getAuthorSuggestions() {
 }
 
 
-
 // Event listener for author button click
 authorButton.addEventListener('click', getAuthorSuggestions);
 
