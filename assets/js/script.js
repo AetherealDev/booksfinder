@@ -1,6 +1,8 @@
 // API Configuration
 const API_BASE_URL = 'https://www.googleapis.com/books/v1';
 const API_KEY = 'AIzaSyD1BULOrUdMikCMnnqhiseWb3rTSXvv3WU';
+const API_NY_URL = 'https://api.nytimes.com/svc/books/v3'
+const API_NY_KEY = 'vYzXEiXGWMX2OJB96yfvKFNuAB5y5ZJH'
 
 // Get references to HTML elements
 const searchForm = document.getElementById('search-form');
