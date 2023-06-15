@@ -132,3 +132,10 @@
     margin: 0;
   }
   
+
+  .card-button {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
