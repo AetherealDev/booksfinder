@@ -145,27 +145,3 @@ fetch(`${API_NY_URL}/lists/full-overview.json?api-key=${API_NY_KEY}`)
  }
 
 
-
-
-// Function to get a list of authors
-function getAuthorSuggestions() {
-  fetch(`${API_BASE_URL}/volumes?q=*&orderBy=newest&maxResults=40&key=${API_KEY}`)
-    .then((response) => response.json())
-    .then((data) => {
-      // Extract unique authors from the API response
-      const authors = [...new Set(data.items.flatMap((book) => book.volumeInfo.authors))];
-      console.log(authors);
-    })
-    .catch((error) => {
-      console.log('Error:', error);
-    });
-}
-
-// Event listener for author button click
-authorButton.addEventListener('click', getAuthorSuggestions);
-
-// Load recommended sliding books on page load
-getRecommendedBooks();
-
-
-
