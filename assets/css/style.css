@@ -1,4 +1,12 @@
 /* styles.css */
+:root {
+    --dark: #4056A1;
+    --light: #EFE2BA;
+    --color-pop: #F13C20;
+    --light-blue:#C5CBE3;
+    --color-mid: #D79922;
+}
+
 
 body {
     font-family: Arial, sans-serif;
@@ -7,8 +15,8 @@ body {
   }
   
   header {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--dark);
+    color: var(--light-blue);
     padding: 10px;
     text-align: center;
   }
@@ -25,7 +33,7 @@ body {
   }
   
   nav ul li a {
-    color: #fff;
+    color: var(--light);
     text-decoration: none;
   }
   
@@ -70,8 +78,8 @@ body {
   }
   
   footer {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--dark);
+    color: var(--light-blue);
     padding: 10px;
     text-align: center;
   }
@@ -82,6 +90,6 @@ body {
   
   section:not(:last-child) {
     margin-bottom: 40px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--light);
   }
   
