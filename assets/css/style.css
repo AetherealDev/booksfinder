@@ -90,6 +90,12 @@ h1, h2, h3 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.box {
+  border-radius: 10px;
+  color:var(--dark);
+  background-color: var(--light);
+}
+
 /* Footer Styles */
 footer {
   background-color: var(--dark);     /* Use dark blue as background color */
