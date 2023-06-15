@@ -44,6 +44,7 @@ function createBookCard(book) {
   const bookCard = document.createElement('div');
   bookCard.classList.add('box');
   bookCard.classList.add('has-background-dark');
+  bookCard.style.color = 'white'; // Set text color to white
 
   const title = document.createElement('h3');
   title.textContent = book.volumeInfo.title;

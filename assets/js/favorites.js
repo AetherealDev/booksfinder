@@ -64,12 +64,11 @@ function unfavoriteBook(book) {
   
 
 
-// the createFavoriteBookCard function works the same as the createBookCard function except
-// it appends a unfavorite button instead
-function createFavoriteBookCard(book) {
+  function createFavoriteBookCard(book) {
     const bookCard = document.createElement('div');
     bookCard.classList.add('box');
     bookCard.classList.add('has-background-dark');
+    bookCard.style.color = 'white'; // Set text color to white
   
     const title = document.createElement('h3');
     title.textContent = book.volumeInfo.title;
@@ -108,5 +107,6 @@ function createFavoriteBookCard(book) {
   
     return bookCard;
   }
+  
 
 favoriteBooks()
