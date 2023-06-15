@@ -2,22 +2,24 @@
     --dark: #4056A1;
     --light: #EFE2BA;
     --color-pop: #F13C20;
-    --light-blue:#C5CBE3;
+    --light-blue: #C5CBE3;
     --color-mid: #D79922;
-}
-
-
-body {
+  }
+  
+  body {
     padding: 20px;
     position: relative;
-    background-color:var(--light);
-}
-
-header {
+    background-color: var(--light);
+  }
+  
+  header {
     background-color: var(--dark);
     color: var(--light-blue);
     padding: 10px;
     text-align: center;
+  }
+  h2 {
+    background-color: var();
   }
   
   nav ul {
@@ -35,86 +37,98 @@ header {
     color: var(--light);
     text-decoration: none;
   }
-
-.home-button {
+  
+  .home-button {
     position: absolute;
     top: 10px;
     right: 10px;
-}
-
-.block:not(:last-child) {
+  }
+  
+  .block:not(:last-child) {
     margin-bottom: 1.5rem;
   }
-
-.genre-section {
+  
+  .genre-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-}
-
-.genre-list {
+  }
+  
+  .genre-list {
     list-style: none;
     padding: 0;
-}
-
-.genre-item {
+  }
+  
+  .genre-item {
     display: flex;
-    flex-direction: column; /* Updated */
+    flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 10px;
     border-bottom: 1px solid var(--light);
     overflow-x: auto;
     overflow-y: hidden;
-}
-
-.genre-item::-webkit-scrollbar {
+    padding-left: 245px;
+  }
+  
+  .genre-item::-webkit-scrollbar {
     height: 8px;
-}
-
-.genre-item::-webkit-scrollbar-track {
+  }
+  
+  .genre-item::-webkit-scrollbar-track {
     background: var(--light);
-}
-
-.genre-item::-webkit-scrollbar-thumb {
+  }
+  
+  .genre-item::-webkit-scrollbar-thumb {
     background: var(--color-pop);
     border-radius: 10px;
-}
-
-.genre-item::-webkit-scrollbar-thumb:hover {
+  }
+  
+  .genre-item::-webkit-scrollbar-thumb:hover {
     background: var(--color-mid);
-}
-
-.genre-item img {
+  }
+  
+  .genre-item img {
     max-width: 100px;
-    margin-bottom: 10px; /* Added */
+    margin-bottom: 10px;
     display: grid;
-}
-
-.books {
+  }
+  
+  .genre-name {
+    margin-top: 10px;
+    font-weight: bold;
+    background-color:var(--dark);
+    color: gray;
+    padding: 10px;
+    text-decoration: solid;
+    text-decoration-color: black;
+    outline: black;
+  }
+  
+  .books {
     display: flex;
     flex-wrap: nowrap;
-}
-
-.book-card {
+  }
+  
+  .book-card {
     width: 250px;
     height: 6;
     margin-right: 10px;
     position: fixed;
     display: grid;
-    justify-content: center; /* Added */
-    align-items: center; /* Added */
-}
-
-footer {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  footer {
     background-color: var(--dark);
     color: var(--light-blue);
     padding: 10px;
     text-align: center;
   }
-
-footer p {
+  
+  footer p {
     margin: 0;
   }
-
+  
