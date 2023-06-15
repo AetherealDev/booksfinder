@@ -133,10 +133,11 @@ function getAuthorSuggestions() {
     });
 }
 
-
 // Event listener for author button click
 authorButton.addEventListener('click', getAuthorSuggestions);
 
 // Load recommended sliding books on page load
 getRecommendedBooks();
+
+
 
