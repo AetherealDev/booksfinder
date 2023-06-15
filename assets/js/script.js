@@ -100,21 +100,47 @@ function favoriteBook(book) {
   localStorage.setItem('favorites', updatedFavorites);
 }
 
-// Function to get recommended sliding books
-function getRecommendedBooks() {
-  fetch(`${API_BASE_URL}/volumes?q=recommended&maxResults=5&key=${API_KEY}`)
-    .then((response) => response.json())
-    .then((data) => {
-      // Process the API response and display the recommended books
-      data.items.forEach((book) => {
-        const bookCard = createBookCard(book);
-        slidingBooksContainer.appendChild(bookCard);
-      });
-    })
-    .catch((error) => {
-      console.log('Error:', error);
-    });
-}
+// Function to fetch bestsellers from NY Times API 
+fetch(`${API_NY_URL}/lists/full-overview.json?api-key=${API_NY_KEY}`)
+  .then(function (response) {
+    return response.json();
+  })
+  
+  .then(function (data) {
+    console.log('Bestseller books');
+    console.log(data)
+      var listitem = data.results.lists[0];
+      var innerBlock = document.querySelector('#carouselExample .carousel-inner');
+      console.log(innerBlock);
+      for (var x = 0; x < listitem.books.length; x++) {
+        var bookItem = listitem.books[x];
+        if (bookItem.book_image){
+          console.log(bookItem.book_image);
+          var slideDeck = createSlide (bookItem.book_image, x);
+
+          innerBlock.appendChild (slideDeck);
+        }
+      }
+    return data;
+  })
+
+// Function to create carousel items
+ function createSlide (url, index) {
+    var slideDeck = document.createElement('div');
+    var slidePic = document.createElement('img');
+    slideDeck.classList.add ('carousel-item');
+    if (index === 0) {
+      slideDeck.classList.add ("active")
+    }
+    slidePic.id = 'carousel-image' + index;
+    slidePic.src = url;
+    slidePic.alt = "..."
+    slidePic.classList.add ("d-block");
+    slidePic.classList.add ("w-100");
+
+    slideDeck.appendChild (slidePic);
+    return slideDeck;
+ }
 
 
 
