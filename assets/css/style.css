@@ -1,95 +1,132 @@
 /* styles.css */
+
+/* Color Variables */
 :root {
-    --dark: #4056A1;
-    --light: #EFE2BA;
-    --color-pop: #F13C20;
-    --light-blue:#C5CBE3;
-    --color-mid: #D79922;
+  --dark: #4056A1;       /* Dark blue */
+  --light: #EFE2BA;      /* Light beige */
+  --color-pop: #F13C20;  /* Pop color - Red */
+  --light-blue: #C5CBE3; /* Light blue */
+  --color-mid: #D79922;  /* Mid-tone color - Orange */
 }
 
+/* Footer Styles */
+.footer {
+  background-color: black;
+}
+
+/* Body Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Styles */
+header {
+  background-color: var(--dark);     /* Use dark blue as background color */
+  color: var(--light-blue);          /* Use light blue as text color */
+  padding: 10px;
+  text-align: center;
+}
+
+/* Navigation Styles */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: var(--light);               /* Use light beige as link color */
+  text-decoration: none;
+}
+
+/* Main Content Styles */
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+/* Search Form Styles */
+#search-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#search-input {
+  flex-grow: 1;
+  padding: 5px;
+  font-size: 16px;
+}
+
+/* Results Styles */
+#results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+
+/* Favorite Books and Sliding Books Styles */
+#favorite-books,
+#sliding-books {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+
+.book-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--dark);     /* Use dark blue as background color */
+  color: var(--light-blue);          /* Use light blue as text color */
+  padding: 10px;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Section Styles */
+section:not(:last-child) {
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--light); /* Use light beige as border color */
+}
+
+/* HTML and Body Styles */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  header {
-    background-color: var(--dark);
-    color: var(--light-blue);
-    padding: 10px;
-    text-align: center;
-  }
-  
-  nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin-right: 10px;
-  }
-  
-  nav ul li a {
-    color: var(--light);
-    text-decoration: none;
-  }
-  
-  main {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  h1, h2, h3 {
-    margin: 0;
-  }
-  
-  #search-form {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  #search-input {
-    flex-grow: 1;
-    padding: 5px;
-    font-size: 16px;
-  }
-  
-  #results {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+}
 
-#favorite-books,
-  #sliding-books {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 20px;
-  }
+/* Main Content Styles */
+main {
+  flex: 1;
+}
 
-  .book-card {
-    border: 1px solid #ddd;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  footer {
-    background-color: var(--dark);
-    color: var(--light-blue);
-    padding: 10px;
-    text-align: center;
-  }
-  
-  footer p {
-    margin: 0;
-  }
-  
-  section:not(:last-child) {
-    margin-bottom: 40px;
-    border-bottom: 1px solid var(--light);
-  }
-  
+/* Footer Styles */
+.footer {
+  background-color: black;
+}
