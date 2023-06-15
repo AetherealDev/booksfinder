@@ -43,3 +43,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
+
+  function favoriteBook(book) {
+    // Retrieve the existing favorites from local storage
+    const favorites = localStorage.getItem('favorites') || '[]';
+  
+    // Parse the favorites into an array
+    const favoritesArray = JSON.parse(favorites);
+  
+    // Add the book to the favorites array
+    favoritesArray.push(book);
+  
+    // Convert the favorites array back to a string
+    const updatedFavorites = JSON.stringify(favoritesArray);
+  
+    // Store the updated favorites in local storage
+    localStorage.setItem('favorites', updatedFavorites);
+  }
+  
