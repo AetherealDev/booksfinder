@@ -32,6 +32,8 @@ function searchBooks(query) {
         const bookCard = createBookCard(book);
         resultsContainer.appendChild(bookCard);
       });
+      var resultsSection = document.getElementById("results-section");
+      resultsSection.style.display = "block";
     })
     .catch((error) => {
       console.log('Error:', error);
