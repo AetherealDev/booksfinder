@@ -97,3 +97,7 @@ body {
     margin-bottom: 40px;
     border-bottom: 1px solid var(--light);
   }
+
+  .footer{
+    background-color: black;
+  }
